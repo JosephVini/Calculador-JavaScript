@@ -14,23 +14,34 @@ function changeTheme() {
 
 // Manipula o display do resultado
 function liveScreen(valueDeEntrada) {
-    if(!res.value) {
+    if (!res.value) {
         res.value = ""
     }
-    res.value += valueDeEntrada
+
+    if (valueDeEntrada === "Backspace") {
+        res.value = res.value.slice(0, -1)
+    } else {
+        res.value += valueDeEntrada
+    }
 }
 
 // Calcula o resultado
 function calculate(value) {
     const calculateValue = eval(value || null)
-    if(isNaN(calculateValue)) {
+    if (isNaN(calculateValue)) {
         res.value = "Não é possivel dividir zero por zero"
     } else {
         res.value = calculateValue
     }
 }
 
-/*
- Fazer o keydow 
- manipulação do teclado
-*/
+// Usando keydown
+document.addEventListener("keydown", (event) => {
+    const teclas = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "/", "*", "-", "+", "Enter", "Backspace"]
+    if (teclas.includes(event.key)) {
+        liveScreen(event.key)
+        if (event.key === "Enter") {
+            calculate(res.value.replace("Enter", ""))
+        }
+    }
+})
