@@ -6,7 +6,7 @@
  *  HTML5  
  *  CSS
 
- Com eles tres foi possivel fazer uma calculadora usando as funções do JavaScript e apresentado o display com HTML5 e CSS.
+ Com eles três foi possivel fazer uma calculadora usando as funções do JavaScript e apresentado o display com HTML5 e CSS.
 
 ### Imagem da Calculadora JS
 
